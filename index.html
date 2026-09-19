@@ -3,33 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+
+    <title>ykjiang05-ai | Personal Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #111827;
+            padding: 16px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb, #60a5fa);
+            color: white;
+        }
+
+        .hero .avatar {
+            width: 120px;
+            height: 120px;
+            background: white;
+            color: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 650px;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button-primary {
+            background: white;
+            color: #2563eb;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .button-outline:hover {
+            background: white;
+            color: #2563eb;
+        }
+
+        /* General Sections */
+        section {
+            padding: 70px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 40px;
+        }
+
+        /* About */
+        .about-card {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #1e3a8a;
+        }
+
+        .card p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .skill {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Welcome to My Personal Website</h1>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">ykjiang05-ai</div>
 
-    <h2>About Me</h2>
-    <p>Hello! I am a student currently studying Data Structures.</p>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#course">Course</a></li>
+            <li><a href="#skills">Learning</a></li>
+        </ul>
+    </nav>
 
-    <h2>Course</h2>
-    <p>
-        I am taking the Data Structures course, CS203A.
-    </p>
 
-    <h2>My GitHub</h2>
-    <p>
-        <a href="https://github.com/ykjiang05-ai">
-            Visit my GitHub profile
-        </a>
-    </p>
+    <!-- Hero -->
+    <header class="hero" id="home">
 
-    <h2>Course Repository</h2>
-    <p>
-        <a href="https://github.com/ykjiang05-ai/11501_CS203A">
-            11501_CS203A Repository
-        </a>
-    </p>
+        <div class="avatar">YK</div>
+
+        <h1>Hello, I'm ykjiang05-ai 👋</h1>
+
+        <p>
+            Welcome to my personal website.
+            This website records my learning journey in Data Structures
+            and my programming projects.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a class="button button-primary"
+               href="https://github.com/ykjiang05-ai"
+               target="_blank">
+                View My GitHub
+            </a>
+
+            <a class="button button-outline"
+               href="https://github.com/ykjiang05-ai/11501_CS203A"
+               target="_blank">
+                Course Repository
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- About -->
+    <section id="about">
+
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+            A little information about me and this website.
+        </p>
+
+        <div class="about-card">
+            <p>
+                Hello! I am a student currently studying Data Structures.
+                I created this website using GitHub Pages as part of my
+                coursework and to document my learning progress.
+            </p>
+
+            <br>
+
+            <p>
+                I am interested in improving my programming,
+                problem-solving, and algorithmic thinking skills.
+                I will continue updating my GitHub repositories
+                as I learn more throughout the semester.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Course -->
+    <section id="course">
+
+        <h2 class="section-title">Course Information</h2>
+
+        <p class="section-subtitle">
+            Data Structures — CS203A
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>Data Structures</h3>
+                <p>
+                    Learning fundamental data structures,
+                    algorithms, and programming techniques.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Course Repository</h3>
+                <p>
+                    My assignments, learning notes, and course-related
+                    materials are stored on GitHub.
+                </p>
+
+                <a href="https://github.com/ykjiang05-ai/11501_CS203A"
+                   target="_blank">
+                    Open Repository →
+                </a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h3>GitHub Pages</h3>
+                <p>
+                    This website is hosted directly from my GitHub
+                    repository using GitHub Pages.
+                </p>
+
+                <a href="https://github.com/ykjiang05-ai/ykjiang05-ai.github.io"
+                   target="_blank">
+                    Website Source →
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Learning -->
+    <section id="skills">
+
+        <h2 class="section-title">Currently Learning</h2>
+
+        <p class="section-subtitle">
+            Technologies and topics I am currently practicing.
+        </p>
+
+        <div class="skills">
+            <span class="skill">Data Structures</span>
+            <span class="skill">Algorithms</span>
+            <span class="skill">Programming</span>
+            <span class="skill">Git</span>
+            <span class="skill">GitHub</span>
+            <span class="skill">HTML</span>
+            <span class="skill">Problem Solving</span>
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 ykjiang05-ai |
+            Built with HTML & CSS |
+            Hosted with GitHub Pages
+        </p>
+
+        <p>
+            <a href="https://github.com/ykjiang05-ai" target="_blank">
+                GitHub Profile
+            </a>
+        </p>
+
+    </footer>
 
 </body>
 </html>
